@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\api\DemandeController;
 use App\Http\Controllers\api\LivreController;
+use App\Http\Controllers\api\LivresProposésController;
 use App\Http\Controllers\api_member\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +26,20 @@ Route::get('/livre', [LivreController::class, 'index']);
 Route::post('/register', [UserController::class, 'register']);
 Route::post('/login', [UserController::class, 'login']);
 
+// Get all livresProposés
+Route::get('livresProposés',  [LivresProposésController::class, 'getLivresProposés']);
+
+// Get Specic livresProposés detail
+Route::get('livresProposés/{id}', [LivresProposésController::class, 'getLivresProposésById']);
+
+// Add LivresProposés
+Route::post('addLivresProposés', [LivresProposésController::class, 'addLivresProposés']);
+
+// Update LivresProposés
+Route::put('updateLivresProposés/{id}', [LivresProposésController::class, 'updateLivresProposés']);
+
+// Delete LivresProposés
+Route::delete('deleteLivresProposés/{id}', [LivresProposésController::class, 'deleteLivresProposés']);
+
+//demande
+Route::post('insertDemande', [DemandeController::class, 'insertDemande']);
